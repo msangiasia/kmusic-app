@@ -1,24 +1,105 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<style >
-	.nav{
-		height: 20px;
-	}
-</style>
-<body>
-	<header>
-		<nav>
-			<a href="">Home</a>
-			<a href="">Price</a>
-			<a href="">About us</a>
-		</nav>
-	</header>
-	{% block content %}
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+    <style media="screen">
+      body{
+        background-image: url({% static 'img/2.jpg' %});
+        background-repeat: no-repeat;
+        background_size:cover;
+      }
+      .card-circle{
+        text-align:center;
+        margin-top:50px;
+        background:#27496D;
+        border:10px solid transparent;
+        color:#fff;
+        Font-family: Montserrat;
+        padding:50px;
+        border-radius:50%;
+      }
+      .card-circle .card-title{
+        font-weight:600;
+        font-size:26px;
+      }
+      .card-circle .card-text{
+        font-weight:400;
+      }
+      .card-circle .card-icon i{
+        font-size:60px;
+        display:block;
+      }
+      .card-circle:nth-child(2){
+        background:#142850;
+      }
+      .card-circle .btn{
+        Font-family: Montserrat;
+        background:transparent;
+        border:1px solid #fff;
+        text-transform:uppercase;
+        padding:5px 30px;
+        border-radius:0px;
+        Font-weight:600;
+      }
+      .card-circle .btn{
+        Font-family: Montserrat;
+        background:transparent;
+        border:1px solid #fff;
+        text-transform:uppercase;
+        padding:5px 30px;
+        border-radius:0px;
+        Font-weight:600;
+      }
+      .card-circle .btn,.card-circle .card-icon i,.card-circle{
+        transition: all ease-in-out 0.2s;
+      }
+      @media only screen and (min-width: 991px) {
+        .card-circle{
+          margin-left:-40px;
+          z-index:0;
+        }
+        .card-circle{
+          width:400px;
+          height:400px;
+        }
+        .card-circle{
+          margin-left:-20px;
+          box-shadow: 1px 2px 20px 8px rgba(241, 235, 235, 0.12);
+          transform: scale(1.2);
+          z-index:1;
+        }
+        .card-circle .card-icon i{
+          margin-top: 20px;
+        }
+      }
+    </style>
+    <title></title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="#">Features</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    {% block  content %}
+    {% endblock content %}
 
-	{% endblock content%}
-
-</body>
+    <footer>
+      <div class="footer">
+        <nav class="navbar">
+          <a href="#">footer</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
 </html>

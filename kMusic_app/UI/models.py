@@ -22,16 +22,24 @@ class Artist(models.Model):
 	art_type = models.CharField(max_length=6, choices=art_type_list)
 
 
-class Catalog(models.Model):
-	cat_name = models.CharField(max_length=100)
-	cat_type = models.CharField(max_length=5)
-
-
 	def __str__(self):
 		return self.cat_name
 
 
 class Song(models.Model):
 	id = models.BigAutoField(primary_key=True)
+	artist = models.ForeignKey(Artist, on_delete = models.CASCADE)
+	date = models.DateField()
 	song_name = models.CharField(max_length=100)
 	song_type = models.CharField(max_length=100)
+	recorded_studio = models.CharField(max_length=100)
+	song_file = models.FileField(upload_to="songs")
+
+
+	def __str__(self):
+		return self.song_name
+
+class Album(models.Model):
+	album_id = models.IntegerField()
+	album_name = models.CharField(max_length=100)
+	album_song = models.ForeignKey(Song, on_delete= models.CASCADE)

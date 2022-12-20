@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView
-from .models import Catalog
+from .models import Album
 
 # Create your views here.
 
@@ -14,5 +14,5 @@ def ui(request):
 	return render(request, "ui/registration.html")
 
 class CatListViews(ListView):
-	model = Catalog
+	model = Album
 	template_name = "utility/404.html"
